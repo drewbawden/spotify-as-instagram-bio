@@ -64,9 +64,9 @@ def change_pfp(image_path):
     if "http" in image_path:
         img_response = requests.get(image_path)
         if img_response.status_code == 200:
-            with open(os.getenv("SONG_PFP"), "wb") as f:
+            with open("album_artwork.png", "wb") as f:
                 f.write(img_response.content)
-            image_path = os.getenv("SONG_PFP")
+            image_path = "album_artwork.png"
         else:
             return
 

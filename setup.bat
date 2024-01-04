@@ -17,6 +17,5 @@ echo IG_PASSWORD="%IG_PASSWORD%" >> .env
 echo LASTFM_API="%LASTFM_API%" >> .env
 echo LASTFM_USERNAME="%LASTFM_USERNAME%" >> .env
 echo PFP="%PFP%" >> .env
-echo SONG_PFP="%SONG_PFP%" >> .env
 
 echo python server.py > run.bat
