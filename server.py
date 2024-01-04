@@ -9,7 +9,12 @@ import signal
 import time
 import os
 
+load_dotenv()
+
 app = Flask(__name__)
+
+cl = Client()
+cl.login(os.getenv("IG_USERNAME"), os.getenv("IG_PASSWORD"))
 
 
 ############### SCHEDULER FUNCIONS ###############
@@ -58,17 +63,21 @@ def get_current_track():
 ############### INSTAGRAM FUNCTIONS ###############
 def change_bio(bio_text):
     cl.account_edit(biography=bio_text)
+        print(f"Updated bio: \n{bio_text}")
 
 
 def change_pfp(image_path):
-    if "http" in image_path:
-        img_response = requests.get(image_path)
-        if img_response.status_code == 200:
-            with open("album_artwork.png", "wb") as f:
-                f.write(img_response.content)
-            image_path = "album_artwork.png"
-        else:
-            return
+    try:
+        if "http" in image_path:
+            img_response = requests.get(image_path)
+            if img_response.status_code == 200:
+                with open("album_artwork.png", "wb") as f:
+                    f.write(img_response.content)
+                image_path = "album_artwork.png"
+            else:
+                return
+    except TypeError:
+        print("Not playing any muisc")
 
     cl.account_change_picture(image_path)
 
@@ -89,7 +98,6 @@ def update_info():
 
     change_bio(bio_text)
     change_pfp(image)
-    print(f"Updated bio: \n{bio_text}")
 
 
 def bio_input(text_input):
@@ -98,7 +106,7 @@ def bio_input(text_input):
 
 
 def reset_bot():
-    change_pfp(os.getenv("SONG_PFP"))
+    change_pfp(os.getenv("PFP"))
     change_bio("")
     tprint("RESET")
 
@@ -137,11 +145,6 @@ def button_click():
 
 
 if __name__ == "__main__":
-    load_dotenv()
-
-    cl = Client()
-    cl.login(os.getenv("IG_USERNAME"), os.getenv("IG_PASSWORD"))
-
     scheduler_process = Process(target=run_scheduler)
     scheduler_process.start()
 
