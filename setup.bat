@@ -10,7 +10,6 @@ set /P IG_PASSWORD=Enter Instagram password:
 set /P LASTFM_API=Enter LastFM api: 
 set /P LASTFM_USERNAME=Enter LastFM username: 
 set /P PFP=Enter default profile picture path: 
-set /P SONG_PFP=Enter path for album profile pictures: 
 
 echo IG_USERNAME="%IG_USERNAME%" > .env
 echo IG_PASSWORD="%IG_PASSWORD%" >> .env
