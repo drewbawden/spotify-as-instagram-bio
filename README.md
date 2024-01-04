@@ -1,6 +1,6 @@
 Just a little program I made out of boredom that uses the LastFM api to get the song that you're currently listening to on spotify and set that as your Instagram bio and profile picture
 
-The program will create a server at [this](127.0.0.1:8888) address that you can manually control it with
+The program will create a webpage at [this](127.0.0.1:8888) address that you can manually control it with
 
 # Installation
 Before installing you first need:
