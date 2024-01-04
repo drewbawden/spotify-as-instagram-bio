@@ -63,7 +63,7 @@ def get_current_track():
 ############### INSTAGRAM FUNCTIONS ###############
 def change_bio(bio_text):
     cl.account_edit(biography=bio_text)
-        print(f"Updated bio: \n{bio_text}")
+    print(f"Updated bio: \n{bio_text}")
 
 
 def change_pfp(image_path):
