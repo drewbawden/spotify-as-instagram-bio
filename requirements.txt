@@ -1,0 +1,7 @@
+instagrapi
+pydantic==1.10.9
+flask
+dotenv
+art
+requests
+schedule

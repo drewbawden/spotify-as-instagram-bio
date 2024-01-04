@@ -1,0 +1,6 @@
+.env
+.cache
+*.jpg
+*.jpeg
+*.png
+run.bat

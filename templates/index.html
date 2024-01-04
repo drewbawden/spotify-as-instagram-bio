@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flask Web Server</title>
+  </head>
+  <body>
+    <form method="POST" action="{{ url_for('button_click') }}">
+      <button type="submit" name="button" value="update">Update</button>
+      <br />
+      <label for="text_input">Bio:</label>
+      <input type="text" id="text_input" name="text_input" />
+      <button type="submit" name="button" value="bio">Bio</button>
+      <br />
+      <button type="submit" name="button" value="reset">Reset</button>
+      <br />
+      <button type="submit" name="button" value="stop">Stop</button>
+    </form>
+  </body>
+</html>
